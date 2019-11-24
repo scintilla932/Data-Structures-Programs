@@ -4,6 +4,7 @@
 void Insert();
 void Delete();
 void Display();
+void Peek();
 
 struct node
 {
@@ -22,8 +23,9 @@ void main()
         printf("1. Insert\n");
         printf("2. Delete\n");
         printf("3. Display\n");
-        printf("4. Quit\n");
-
+        printf("4. Peek\n");
+        printf("5. Quit\n");
+        
         printf("Enter your choice ");
         scanf("%d", &ch);
 
@@ -35,7 +37,9 @@ void main()
                     break;
             case 3: Display();
                     break;
-            case 4: exit(0);
+            case 4: Peek();
+                    break;
+            case 5: exit(0);
             default: printf("Invalid choice\n");
         }
     }
@@ -85,4 +89,15 @@ void Display()
             temp = temp->link;
         }
     }
+}
+void Peek()
+{
+    struct node *temp;
+    if(top == NULL)
+        printf("Stack Empty.");
+    else
+    {
+        printf("%d",top->data);
+    }
+    printf("\n");
 }
