@@ -133,7 +133,7 @@ void Addatafter()
         temp->left = NULL;
         temp->right = NULL;
         p = root;
-        while( i < loc)
+        while( i > loc)
         {
             p = p->right;
             i++;
