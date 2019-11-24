@@ -120,7 +120,7 @@ void Addatafter()
     printf("Enter location to add: ");
     scanf("%d", &loc);
     len = Length();
-    if( loc < len)
+    if( loc > len)
     {
         printf("Invalic location\n");
         printf("List contains %d nodes\n", len);
