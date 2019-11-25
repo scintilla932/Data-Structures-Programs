@@ -86,14 +86,15 @@ void insert(int d)
 
 void traverse(struct node* t)
 {
-    if(t->left)
+    if((t != NULL) && (t->left != NULL))
     {
         traverse(t->left);
     }
-
+    if(root != NULL)
+    {
     printf("%d ", t->data);
-
-    if(t->right)
+    }
+    if((t != NULL) && (root->right != NULL))
     {
         traverse(t->right);
     }
