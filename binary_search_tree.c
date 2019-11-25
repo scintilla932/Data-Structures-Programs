@@ -10,7 +10,9 @@ struct node
 struct node* root = NULL;
 
 void insert(int);
-void traverse(struct node*);
+void inorder_traverse(struct node*);
+void preorder_traverse(struct node*);
+void postorder_traverse(struct node*);
 
 int main()
 {
@@ -21,7 +23,9 @@ int main()
         printf("\n*** Binary Search Tree ***\n");
         printf("1. Insert\n");
         printf("2. Traverse(In order)\n");
-        printf("3. Quit\n");
+        printf("3. Traverse(Pre order)\n");
+        printf("4. Traverse(Post order)\n");
+        printf("5. Quit\n");
         printf("\nEnter your choice: ");
         scanf("%d", &ch);
 
@@ -33,9 +37,15 @@ int main()
                insert(d);
                break;
             case 2:
-                traverse(root);
+                inorder_traverse(root);
                 break;
             case 3:
+                preorder_traverse(root);
+                break;
+            case 4:
+                postorder_traverse(root);
+                break;
+            case 5:
                 exit(0);
             default:
                 printf("Inavlid choice\n");  
@@ -84,18 +94,51 @@ void insert(int d)
     }
 }
 
-void traverse(struct node* t)
+void inorder_traverse(struct node* t)
 {
-    if((t != NULL) && (t->left != NULL))
+    if(t->left)
     {
-        traverse(t->left);
+        inorder_traverse(t->left);
     }
-    if(root != NULL)
-    {
+
     printf("%d ", t->data);
-    }
-    if((t != NULL) && (root->right != NULL))
+
+    if(t->right)
     {
-        traverse(t->right);
+        inorder_traverse(t->right);
     }
+}
+
+void preorder_traverse(struct node* t)
+{
+    printf("%d ", t->data);
+
+    if(t->left)
+    {
+        preorder_traverse(t->left);
+    }
+
+    
+
+    if(t->right)
+    {
+        preorder_traverse(t->right);
+    }
+}
+
+void postorder_traverse(struct node* t)
+{
+    if(t->left)
+    {
+        postorder_traverse(t->left);
+    }
+
+    
+
+    if(t->right)
+    {
+        postorder_traverse(t->right);
+    }
+
+    printf("%d ", t->data);
 }
