@@ -174,3 +174,39 @@ void Display()
     }
     
 }
+void deletebegin()
+{
+    struct node* temp;
+    temp = root;
+    if(root == NULL)
+        printf("\nList empty.\n");
+    else
+    {
+        printf("\nElement deleted:%d",temp->data);
+        root = temp->right;
+        temp->right = NULL;
+        root->left = NULL;
+        free(temp);
+    }
+
+}
+void deleteend()
+{
+    if(root == NULL)
+    {
+        printf("\nList empty.\n");
+    }
+    else
+    {
+        struct node* p;
+        p=root;
+        while(p->right!=NULL)
+        {
+            p=p->right;
+        }
+        p->left->right = NULL;
+        p->left = NULL;
+
+
+    }
+}
